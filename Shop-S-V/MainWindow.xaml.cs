@@ -38,7 +38,7 @@ namespace Shop_S_V
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+           
         }
     }
 }
