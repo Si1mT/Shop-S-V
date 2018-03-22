@@ -51,8 +51,16 @@ namespace Shop_S_V
 
         private void Button_Click_LisaToode(object sender, RoutedEventArgs e)
         {
-            File.Create("../../" + textbox1.Text + ".txt");
-            File.WriteAllLines()
+            if (File.Exists("../../toode/" + textbox1.Text + ".txt"))
+            {
+                MessageBox.Show("See toode on juba olemas", "Message", MessageBoxButton.OK);
+            }
+            else
+            {
+                File.WriteAllText("../../toode/" + textbox1.Text + ".txt", textbox2.Text + "\n" + textbox3.Text);
+                MessageBox.Show("Uus toode edukalt lisatud", "Message", MessageBoxButton.OK);
+            }
+                
         }
 
         private void Restart(object sender, RoutedEventArgs e)
