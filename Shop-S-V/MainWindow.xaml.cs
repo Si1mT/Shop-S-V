@@ -23,6 +23,22 @@ namespace Shop_S_V
         public MainWindow()
         {
             InitializeComponent();
+
+            List<Toode> Tooted = new List<Toode>();
+            Tooted.Add(new Toode() { Nimi = "piim", Hind = 3, Kogus = 1 });
+
+            ProductListBox.ItemsSource = Tooted;
+        }
+        public class Toode
+        {
+            public string Nimi { get; set; }
+            public int Hind { get; set; }
+            public int Kogus { get; set; }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
