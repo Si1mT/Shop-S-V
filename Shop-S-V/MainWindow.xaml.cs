@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Shop_S_V
 {
@@ -48,8 +49,10 @@ namespace Shop_S_V
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_LisaToode(object sender, RoutedEventArgs e)
         {
+            File.Create("../../" + textbox1.Text + ".txt");
+            File.WriteAllLines()
         }
 
         private void Restart(object sender, RoutedEventArgs e)

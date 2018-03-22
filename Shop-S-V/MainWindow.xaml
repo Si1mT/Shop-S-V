@@ -20,7 +20,7 @@
         <Label  Content="kogus" HorizontalAlignment="Left" Margin="254,47,0,0" VerticalAlignment="Top" Height="32" Width="59" Visibility="Visible" x:Name="Kogus"/>
         <Button Content="Kassa" HorizontalAlignment="Left" Margin="285,25,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click_Kassa" Height="56" x:Name="Kassa" Visibility="Visible">
         </Button>
-        <Button Content="Lisa" HorizontalAlignment="Left" Margin="330,67,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="Button_Click_1" x:Name="Lisa_Toode" Visibility="Hidden"/>
+        <Button Content="Lisa" HorizontalAlignment="Left" Margin="330,67,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="Button_Click_LisaToode" x:Name="Lisa_Toode" Visibility="Hidden"/>
         <Button Content="R" HorizontalAlignment="Left" Margin="0,52,0,1" Width="15" RenderTransformOrigin="-0.188,3.909" Click="Restart" Grid.Row="1"/>
 
     </Grid>
