@@ -21,6 +21,8 @@ namespace Shop_S_V
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool LõpetaButtonClicked = false;
+        public bool LisaVeelButtonClicked = false;
 
         public MainWindow()
         {
@@ -33,6 +35,19 @@ namespace Shop_S_V
             Kogus.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Visible;
             Lisa_Toode.Visibility = Visibility.Hidden;
+            LisaVõiLõpeta.Visibility = Visibility.Hidden;
+            LisaVeelButton.Visibility = Visibility.Hidden;
+            LõpetaButton.Visibility = Visibility.Hidden;
+        }
+        public void LõpetaButton_Click(object sender, RoutedEventArgs e)
+        {
+            LõpetaButtonClicked = true;
+
+        }
+
+        public void LisaVeelButton_Click(object sender, RoutedEventArgs e)
+        {
+            LisaVeelButtonClicked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,18 +66,71 @@ namespace Shop_S_V
 
         private void Button_Click_LisaToode(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("../../toode/" + textbox1.Text + ".txt"))
+            bool mane = true;
+            while (mane == true)
             {
-                MessageBox.Show("See toode on juba olemas", "Message", MessageBoxButton.OK);
-            }
-            else
-            {
-                File.WriteAllText("../../toode/" + textbox1.Text + ".txt", textbox2.Text + "\n" + textbox3.Text);
-                MessageBox.Show("Uus toode edukalt lisatud", "Message", MessageBoxButton.OK);
+                if (File.Exists("../../toode/" + textbox1.Text + ".txt"))
+                {
+                    MessageBox.Show("See toode on juba olemas", "Message", MessageBoxButton.OK);
+                    break;
+                }
+                else
+                {
+                    File.WriteAllText("../../toode/" + textbox1.Text + ".txt", textbox2.Text + "\n" + textbox3.Text);
+                    MessageBox.Show("Uus toode edukalt lisatud", "Message", MessageBoxButton.OK);
+                    textbox1.Visibility = Visibility.Hidden;
+                    textbox2.Visibility = Visibility.Hidden;
+                    textbox3.Visibility = Visibility.Hidden;
+                    Toode.Visibility = Visibility.Hidden;
+                    Hind.Visibility = Visibility.Hidden;
+                    Kogus.Visibility = Visibility.Hidden;
+                    Lisa_Toode.Visibility = Visibility.Hidden;
+                    textbox1.Text = "";
+                    textbox2.Text = "";
+                    textbox3.Text = "";
+                    LisaVõiLõpeta.Visibility = Visibility.Visible;
+                    LisaVeelButton.Visibility = Visibility.Visible;
+                    LõpetaButton.Visibility = Visibility.Visible;
+                    if (LõpetaButtonClicked == true)
+                    {
+                        LõpetaButtonClicked = false;
+                        Restarta();
+                    }
+                    if (LisaVeelButtonClicked == true)
+                    {
+                        LisaVeelButtonClicked = false;
+                        LisaVeelJuurde();
+                    }
+                    break;
+                }
             }
                 
         }
+        public void Restarta()
+        {
+            textbox1.Visibility = Visibility.Hidden;
+            textbox2.Visibility = Visibility.Hidden;
+            textbox3.Visibility = Visibility.Hidden;
+            Toode.Visibility = Visibility.Hidden;
+            Hind.Visibility = Visibility.Hidden;
+            Kogus.Visibility = Visibility.Hidden;
+            Kassa.Visibility = Visibility.Visible;
+            Lisa_Toode.Visibility = Visibility.Hidden;
+            Lisa.Visibility = Visibility.Visible;
+        }
+        public void LisaVeelJuurde()
+        {
+            textbox1.Visibility = Visibility.Visible;
+            textbox2.Visibility = Visibility.Visible;
+            textbox3.Visibility = Visibility.Visible;
+            Toode.Visibility = Visibility.Visible;
+            Hind.Visibility = Visibility.Visible;
+            Kogus.Visibility = Visibility.Visible;
+            Lisa.Visibility = Visibility.Hidden;
+            Kassa.Visibility = Visibility.Hidden;
+            Lisa_Toode.Visibility = Visibility.Visible;
 
+        }
         private void Restart(object sender, RoutedEventArgs e)
         {
             textbox1.Visibility = Visibility.Hidden;
@@ -82,5 +150,7 @@ namespace Shop_S_V
             Kassa.Visibility = Visibility.Hidden;
             Lisa.Visibility = Visibility.Hidden;
         }
+
+
     }
 }
