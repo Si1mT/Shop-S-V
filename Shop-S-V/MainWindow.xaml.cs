@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace Shop_S_V
 {
@@ -23,31 +25,24 @@ namespace Shop_S_V
     {
         public bool LõpetaButtonClicked = false;
         public bool LisaVeelButtonClicked = false;
+        public bool LisaVõiLõpetaClicked = false;
 
         public MainWindow()
         {
             InitializeComponent();
-            textbox1.Visibility = Visibility.Hidden;
-            textbox2.Visibility = Visibility.Hidden;
-            textbox3.Visibility = Visibility.Hidden;
-            Toode.Visibility = Visibility.Hidden;
-            Hind.Visibility = Visibility.Hidden;
-            Kogus.Visibility = Visibility.Hidden;
-            Kassa.Visibility = Visibility.Visible;
-            Lisa_Toode.Visibility = Visibility.Hidden;
-            LisaVõiLõpeta.Visibility = Visibility.Hidden;
-            LisaVeelButton.Visibility = Visibility.Hidden;
-            LõpetaButton.Visibility = Visibility.Hidden;
+            Restarta();
         }
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
             LõpetaButtonClicked = true;
+            LisaVõiLõpetaClicked = true;
 
         }
 
         public void LisaVeelButton_Click(object sender, RoutedEventArgs e)
         {
             LisaVeelButtonClicked = true;
+            LisaVõiLõpetaClicked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -91,15 +86,23 @@ namespace Shop_S_V
                     LisaVõiLõpeta.Visibility = Visibility.Visible;
                     LisaVeelButton.Visibility = Visibility.Visible;
                     LõpetaButton.Visibility = Visibility.Visible;
+                    while (LisaVõiLõpetaClicked == false)
+                    {
+                        Application.Current.Dispatcher.Invoke(
+                        DispatcherPriority.Background,
+                         new ThreadStart(delegate { }));
+                    }
                     if (LõpetaButtonClicked == true)
                     {
                         LõpetaButtonClicked = false;
                         Restarta();
+                        break;
                     }
                     if (LisaVeelButtonClicked == true)
                     {
                         LisaVeelButtonClicked = false;
                         LisaVeelJuurde();
+                        break;
                     }
                     break;
                 }
@@ -108,6 +111,7 @@ namespace Shop_S_V
         }
         public void Restarta()
         {
+            Lisa.Visibility = Visibility.Visible;
             textbox1.Visibility = Visibility.Hidden;
             textbox2.Visibility = Visibility.Hidden;
             textbox3.Visibility = Visibility.Hidden;
@@ -116,7 +120,12 @@ namespace Shop_S_V
             Kogus.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Visible;
             Lisa_Toode.Visibility = Visibility.Hidden;
-            Lisa.Visibility = Visibility.Visible;
+            LisaVõiLõpeta.Visibility = Visibility.Hidden;
+            LisaVeelButton.Visibility = Visibility.Hidden;
+            LõpetaButton.Visibility = Visibility.Hidden;
+            textbox1.Text = "";
+            textbox2.Text = "";
+            textbox3.Text = "";
         }
         public void LisaVeelJuurde()
         {
@@ -133,15 +142,7 @@ namespace Shop_S_V
         }
         private void Restart(object sender, RoutedEventArgs e)
         {
-            textbox1.Visibility = Visibility.Hidden;
-            textbox2.Visibility = Visibility.Hidden;
-            textbox3.Visibility = Visibility.Hidden;
-            Toode.Visibility = Visibility.Hidden;
-            Hind.Visibility = Visibility.Hidden;
-            Kogus.Visibility = Visibility.Hidden;
-            Kassa.Visibility = Visibility.Visible;
-            Lisa_Toode.Visibility = Visibility.Hidden;
-            Lisa.Visibility = Visibility.Visible;
+            Restarta();
         }
 
         private void Button_Click_Kassa(object sender, RoutedEventArgs e)
