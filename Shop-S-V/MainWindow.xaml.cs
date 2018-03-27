@@ -27,17 +27,7 @@ namespace Shop_S_V
         public MainWindow()
         {
             InitializeComponent();
-            textbox1.Visibility = Visibility.Hidden;
-            textbox2.Visibility = Visibility.Hidden;
-            textbox3.Visibility = Visibility.Hidden;
-            Toode.Visibility = Visibility.Hidden;
-            Hind.Visibility = Visibility.Hidden;
-            Kogus.Visibility = Visibility.Hidden;
-            Kassa.Visibility = Visibility.Visible;
-            Lisa_Toode.Visibility = Visibility.Hidden;
-            LisaVõiLõpeta.Visibility = Visibility.Hidden;
-            LisaVeelButton.Visibility = Visibility.Hidden;
-            LõpetaButton.Visibility = Visibility.Hidden;
+            Restarta();
         }
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
@@ -116,7 +106,11 @@ namespace Shop_S_V
             Kogus.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Visible;
             Lisa_Toode.Visibility = Visibility.Hidden;
-            Lisa.Visibility = Visibility.Visible;
+            LisaVõiLõpeta.Visibility = Visibility.Hidden;
+            LisaVeelButton.Visibility = Visibility.Hidden;
+            LõpetaButton.Visibility = Visibility.Hidden;
+            Label_Ostukorv.Visibility = Visibility.Hidden;
+            ToodeListBox.Visibility = Visibility.Hidden;
         }
         public void LisaVeelJuurde()
         {
@@ -149,6 +143,23 @@ namespace Shop_S_V
             Lisa_Toode.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Hidden;
             Lisa.Visibility = Visibility.Hidden;
+            Label_Ostukorv.Visibility = Visibility.Visible;
+            ToodeListBox.Visibility = Visibility.Visible;
+            DirectoryInfo tooted = new DirectoryInfo(@"../../toode");
+            FileInfo[] Files = tooted.GetFiles("*.txt");
+            foreach(FileInfo file in Files)
+            {
+                ToodeListBox.Items.Add(file.Name);
+            }
+            //List<string> tooted = new List<string>();
+            //using (StreamReader r=new StreamReader(@"../../toode/"))
+            //{
+            //    string line;
+            //    while((line = r.ReadLine()) != null)
+            //    {
+            //        tooted.Add(line);
+            //    }
+            //}
         }
 
 

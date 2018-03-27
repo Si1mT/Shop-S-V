@@ -25,6 +25,7 @@
         <Label Content="Lisa veel või lõpeta?" HorizontalAlignment="Center" Margin="194,122,207,0" VerticalAlignment="Top" Height="39" Width="116" x:Name="LisaVõiLõpeta"/>
         <Button Content="Lisa Veel" HorizontalAlignment="Left" Margin="169,156,0,0" VerticalAlignment="Top" Width="65" Height="44" Click="LisaVeelButton_Click" x:Name="LisaVeelButton"/>
         <Button Content="Lõpeta" HorizontalAlignment="Left" Margin="282,156,0,0" VerticalAlignment="Top" Width="65" Height="44" x:Name="LõpetaButton" Click="LõpetaButton_Click"/>
-
+        <Label Content="Ostukorv" HorizontalAlignment="Left" Margin="21,16,0,0" VerticalAlignment="Top" Name="Label_Ostukorv"/>
+        <ListBox HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="179" Margin="10,47,0,0" Name="ToodeListBox" Grid.RowSpan="2"/>
     </Grid>
 </Window>
