@@ -25,9 +25,5 @@ namespace Shop_S_V
             InitializeComponent();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           
-        }
     }
 }

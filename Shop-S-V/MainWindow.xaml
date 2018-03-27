@@ -7,27 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ListBox Name="ProductListBox">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0,2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Nimi}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Hind}"/>
-                        <TextBlock Grid.Column="2" Text="{Binding Kogus}"/>
-
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="134*"/>
-            <RowDefinition Height="185*"/>
-        </Grid.RowDefinitions>
-
+        
     </Grid>
 </Window>
