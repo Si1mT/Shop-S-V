@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button Content="Add" HorizontalAlignment="Left" Margin="125,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Checkout" HorizontalAlignment="Left" Margin="267,68,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.507,-0.4"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="55,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox.Background>
+            <Image ImageSource="TextBoxBackground.gif" AlignmentX="Left" Stretch="None"/>
+        </TextBox.Background>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="180,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="305,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

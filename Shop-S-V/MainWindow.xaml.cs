@@ -25,5 +25,18 @@ namespace Shop_S_V
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (myTextBox.Text == "")
+            {
+                ImageBrush textImageBrush = new ImageBrush();
+                textImageBrush.ImageSource=new BitmapImage(new Uri(@))
+            }
+        }
     }
 }
