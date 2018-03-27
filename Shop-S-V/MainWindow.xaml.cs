@@ -147,10 +147,13 @@ namespace Shop_S_V
             ToodeListBox.Visibility = Visibility.Visible;
             DirectoryInfo tooted = new DirectoryInfo(@"../../toode");
             FileInfo[] Files = tooted.GetFiles("*.txt");
-            foreach(FileInfo file in Files)
+            foreach(FileInfo toode in Files)
             {
-                ToodeListBox.Items.Add(file.Name);
+                string trimmedToode = toode.ToString();
+                trimmedToode = trimmedToode.Split('.').First();
+                ToodeListBox.Items.Add(trimmedToode);
             }
+
             //List<string> tooted = new List<string>();
             //using (StreamReader r=new StreamReader(@"../../toode/"))
             //{
