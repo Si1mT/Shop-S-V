@@ -61,6 +61,7 @@ namespace Shop_S_V
 
         private void Button_Click_LisaToode(object sender, RoutedEventArgs e)
         {
+
             bool mane = true;
             while (mane == true)
             {
@@ -95,16 +96,17 @@ namespace Shop_S_V
                     if (LõpetaButtonClicked == true)
                     {
                         LõpetaButtonClicked = false;
+                        LisaVõiLõpetaClicked = false;
                         Restarta();
                         break;
                     }
                     if (LisaVeelButtonClicked == true)
                     {
+                        LisaVõiLõpetaClicked = false;
                         LisaVeelButtonClicked = false;
-                        LisaVeelJuurde();
+                        VeelToodeid();
                         break;
                     }
-                    break;
                 }
             }
                 
@@ -127,19 +129,6 @@ namespace Shop_S_V
             textbox2.Text = "";
             textbox3.Text = "";
         }
-        public void LisaVeelJuurde()
-        {
-            textbox1.Visibility = Visibility.Visible;
-            textbox2.Visibility = Visibility.Visible;
-            textbox3.Visibility = Visibility.Visible;
-            Toode.Visibility = Visibility.Visible;
-            Hind.Visibility = Visibility.Visible;
-            Kogus.Visibility = Visibility.Visible;
-            Lisa.Visibility = Visibility.Hidden;
-            Kassa.Visibility = Visibility.Hidden;
-            Lisa_Toode.Visibility = Visibility.Visible;
-
-        }
         private void Restart(object sender, RoutedEventArgs e)
         {
             Restarta();
@@ -151,7 +140,21 @@ namespace Shop_S_V
             Kassa.Visibility = Visibility.Hidden;
             Lisa.Visibility = Visibility.Hidden;
         }
-
-
+        public void VeelToodeid()
+        {
+            textbox1.Visibility = Visibility.Visible;
+            textbox2.Visibility = Visibility.Visible;
+            textbox3.Visibility = Visibility.Visible;
+            Toode.Visibility = Visibility.Visible;
+            Hind.Visibility = Visibility.Visible;
+            Kogus.Visibility = Visibility.Visible;
+            Lisa.Visibility = Visibility.Hidden;
+            Kassa.Visibility = Visibility.Hidden;
+            Lisa_Toode.Visibility = Visibility.Visible;
+            LisaVõiLõpeta.Visibility = Visibility.Hidden;
+            LisaVeelButton.Visibility = Visibility.Hidden;
+            LõpetaButton.Visibility = Visibility.Hidden;
+        }
+        
     }
 }
