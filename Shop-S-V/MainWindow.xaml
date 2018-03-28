@@ -13,8 +13,9 @@
         </Grid.RowDefinitions>
         <Button Content="Lisa Toode" HorizontalAlignment="Left" Margin="126,26,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click" x:Name="Lisa" Height="56"/>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="99,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="176,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox2"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox3"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="176,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox2"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox3"/>
+        <!--<TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox3"/>-->
         <Label  Content="Toote nimi" HorizontalAlignment="Left" Margin="100,47,0,0" VerticalAlignment="Top" Height="28" Width="67" Visibility="Hidden" x:Name="Toode"/>
         <Label  Content="hind" HorizontalAlignment="Left" Margin="177,47,0,0" VerticalAlignment="Top" Height="28" Width="54" Visibility="Hidden" x:Name="Hind"/>
         <Label  Content="kogus" HorizontalAlignment="Left" Margin="254,47,0,0" VerticalAlignment="Top" Height="32" Width="59" Visibility="Visible" x:Name="Kogus"/>
@@ -25,7 +26,22 @@
         <Label Content="Lisa veel või lõpeta?" HorizontalAlignment="Center" Margin="194,122,207,0" VerticalAlignment="Top" Height="39" Width="116" x:Name="LisaVõiLõpeta"/>
         <Button Content="Lisa Veel" HorizontalAlignment="Left" Margin="169,156,0,0" VerticalAlignment="Top" Width="65" Height="44" Click="LisaVeelButton_Click" x:Name="LisaVeelButton"/>
         <Button Content="Lõpeta" HorizontalAlignment="Left" Margin="282,156,0,0" VerticalAlignment="Top" Width="65" Height="44" x:Name="LõpetaButton" Click="LõpetaButton_Click"/>
-        <Label Content="Ostukorv" HorizontalAlignment="Left" Margin="21,16,0,0" VerticalAlignment="Top" Name="Label_Ostukorv"/>
-        <ListBox HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="179" Margin="10,47,0,0" Name="ToodeListBox" Grid.RowSpan="2"/>
+        <Label Content="Ostukorv" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Name="Label_Ostukorv"/>
+        <ListBox HorizontalAlignment="Left" Height="239" VerticalAlignment="Top" Width="179" Margin="10,42,0,0" Name="ToodeListBox" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Nimi}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Hind}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Kogus}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+         </ListBox>
     </Grid>
 </Window>

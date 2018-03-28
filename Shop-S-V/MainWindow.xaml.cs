@@ -24,20 +24,26 @@ namespace Shop_S_V
         public bool LõpetaButtonClicked = false;
         public bool LisaVeelButtonClicked = false;
 
+        
+
         public MainWindow()
         {
             InitializeComponent();
             Restarta();
         }
+
+        List<Toode> ToodeteList = new List<Toode>();
+
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
             LõpetaButtonClicked = true;
-
+            Restarta();
         }
 
         public void LisaVeelButton_Click(object sender, RoutedEventArgs e)
         {
             LisaVeelButtonClicked = true;
+            Restarta();//leia nupp mis läheb otse "lisa uute"
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -59,14 +65,17 @@ namespace Shop_S_V
             bool mane = true;
             while (mane == true)
             {
-                if (File.Exists("../../toode/" + textbox1.Text + ".txt"))
+                ToodeteList.Add(new Toode() { Nimi = "lol", Hind = 1, Kogus = 1 });
+                if (ToodeteList.Any(Toode => Toode.Nimi == textbox1.Text))
                 {
                     MessageBox.Show("See toode on juba olemas", "Message", MessageBoxButton.OK);
                     break;
                 }
                 else
                 {
-                    File.WriteAllText("../../toode/" + textbox1.Text + ".txt", textbox2.Text + "\n" + textbox3.Text);
+                    int textbox2Parsed = int.Parse(textbox2.Text);
+                    int textbox3Parsed = int.Parse(textbox3.Text);
+                    ToodeteList.Add(new Toode { Nimi = textbox1.Text, Hind = textbox2Parsed, Kogus=textbox3Parsed });
                     MessageBox.Show("Uus toode edukalt lisatud", "Message", MessageBoxButton.OK);
                     textbox1.Visibility = Visibility.Hidden;
                     textbox2.Visibility = Visibility.Hidden;
@@ -83,7 +92,7 @@ namespace Shop_S_V
                     LõpetaButton.Visibility = Visibility.Visible;
                     if (LõpetaButtonClicked == true)
                     {
-                        LõpetaButtonClicked = false;
+                        LõpetaButtonClicked = true;
                         Restarta();
                     }
                     if (LisaVeelButtonClicked == true)
@@ -96,6 +105,7 @@ namespace Shop_S_V
             }
                 
         }
+
         public void Restarta()
         {
             textbox1.Visibility = Visibility.Hidden;
@@ -111,7 +121,9 @@ namespace Shop_S_V
             LõpetaButton.Visibility = Visibility.Hidden;
             Label_Ostukorv.Visibility = Visibility.Hidden;
             ToodeListBox.Visibility = Visibility.Hidden;
+            
         }
+
         public void LisaVeelJuurde()
         {
             textbox1.Visibility = Visibility.Visible;
@@ -125,6 +137,7 @@ namespace Shop_S_V
             Lisa_Toode.Visibility = Visibility.Visible;
 
         }
+
         private void Restart(object sender, RoutedEventArgs e)
         {
             textbox1.Visibility = Visibility.Hidden;
@@ -136,6 +149,8 @@ namespace Shop_S_V
             Kassa.Visibility = Visibility.Visible;
             Lisa_Toode.Visibility = Visibility.Hidden;
             Lisa.Visibility = Visibility.Visible;
+            ToodeListBox.Visibility = Visibility.Hidden;
+            Label_Ostukorv.Visibility = Visibility.Hidden;
         }
 
         private void Button_Click_Kassa(object sender, RoutedEventArgs e)
@@ -145,26 +160,6 @@ namespace Shop_S_V
             Lisa.Visibility = Visibility.Hidden;
             Label_Ostukorv.Visibility = Visibility.Visible;
             ToodeListBox.Visibility = Visibility.Visible;
-            DirectoryInfo tooted = new DirectoryInfo(@"../../toode");
-            FileInfo[] Files = tooted.GetFiles("*.txt");
-            foreach(FileInfo toode in Files)
-            {
-                string trimmedToode = toode.ToString();
-                trimmedToode = trimmedToode.Split('.').First();
-                ToodeListBox.Items.Add(trimmedToode);
-            }
-
-            //List<string> tooted = new List<string>();
-            //using (StreamReader r=new StreamReader(@"../../toode/"))
-            //{
-            //    string line;
-            //    while((line = r.ReadLine()) != null)
-            //    {
-            //        tooted.Add(line);
-            //    }
-            //}
         }
-
-
     }
 }
