@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Shop_S_V
 {
@@ -24,26 +25,26 @@ namespace Shop_S_V
         public bool LõpetaButtonClicked = false;
         public bool LisaVeelButtonClicked = false;
 
-        
-
         public MainWindow()
         {
             InitializeComponent();
             Restarta();
         }
-
-        List<Toode> ToodeteList = new List<Toode>();
+        ObservableCollection<Toode> ToodeteList = new ObservableCollection<Toode>();
 
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
             LõpetaButtonClicked = true;
+            //Button_Click_Kassa(object sender, RoutedEventArgs e);     //leia kuidas otse saada kassasse
             Restarta();
         }
 
         public void LisaVeelButton_Click(object sender, RoutedEventArgs e)
         {
-            LisaVeelButtonClicked = true;
-            Restarta();//leia nupp mis läheb otse "lisa uute"
+            LisaVeelButtonClicked=true;
+            Restarta();//leia nupp mis läheb otse "lisa uute"  
+            //Lisa_Toode.Visibility = Visibility.Visible;
+            Lisa.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,6 @@ namespace Shop_S_V
             bool mane = true;
             while (mane == true)
             {
-                ToodeteList.Add(new Toode() { Nimi = "lol", Hind = 1, Kogus = 1 });
                 if (ToodeteList.Any(Toode => Toode.Nimi == textbox1.Text))
                 {
                     MessageBox.Show("See toode on juba olemas", "Message", MessageBoxButton.OK);
@@ -73,9 +73,10 @@ namespace Shop_S_V
                 }
                 else
                 {
-                    int textbox2Parsed = int.Parse(textbox2.Text);
+                    double textbox2Parsed = double.Parse(textbox2.Text);
                     int textbox3Parsed = int.Parse(textbox3.Text);
                     ToodeteList.Add(new Toode { Nimi = textbox1.Text, Hind = textbox2Parsed, Kogus=textbox3Parsed });
+                    ToodeListBox.ItemsSource = ToodeteList;
                     MessageBox.Show("Uus toode edukalt lisatud", "Message", MessageBoxButton.OK);
                     textbox1.Visibility = Visibility.Hidden;
                     textbox2.Visibility = Visibility.Hidden;
@@ -90,6 +91,7 @@ namespace Shop_S_V
                     LisaVõiLõpeta.Visibility = Visibility.Visible;
                     LisaVeelButton.Visibility = Visibility.Visible;
                     LõpetaButton.Visibility = Visibility.Visible;
+                    Button_Summa.Visibility = Visibility.Hidden;
                     if (LõpetaButtonClicked == true)
                     {
                         LõpetaButtonClicked = true;
@@ -98,12 +100,12 @@ namespace Shop_S_V
                     if (LisaVeelButtonClicked == true)
                     {
                         LisaVeelButtonClicked = false;
-                        LisaVeelJuurde();
+                        Lisa.Visibility = Visibility.Visible;
+                        Restarta();//LisaVeelJuurde();
                     }
                     break;
                 }
             }
-                
         }
 
         public void Restarta()
@@ -120,8 +122,11 @@ namespace Shop_S_V
             LisaVeelButton.Visibility = Visibility.Hidden;
             LõpetaButton.Visibility = Visibility.Hidden;
             Label_Ostukorv.Visibility = Visibility.Hidden;
+            Label_Toode.Visibility = Visibility.Hidden;
+            Label_Hind.Visibility = Visibility.Hidden;
+            Label_Kogus.Visibility = Visibility.Hidden;
             ToodeListBox.Visibility = Visibility.Hidden;
-            
+            Button_Summa.Visibility = Visibility.Hidden;
         }
 
         public void LisaVeelJuurde()
@@ -135,10 +140,10 @@ namespace Shop_S_V
             Lisa.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Hidden;
             Lisa_Toode.Visibility = Visibility.Visible;
-
+            Button_Summa.Visibility = Visibility.Hidden;
         }
 
-        private void Restart(object sender, RoutedEventArgs e)
+        private void Restart(object sender,RoutedEventArgs e)//miks see on private ja Restarta on public?
         {
             textbox1.Visibility = Visibility.Hidden;
             textbox2.Visibility = Visibility.Hidden;
@@ -147,10 +152,14 @@ namespace Shop_S_V
             Hind.Visibility = Visibility.Hidden;
             Kogus.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Visible;
-            Lisa_Toode.Visibility = Visibility.Hidden;
+            Lisa_Toode.Visibility = Visibility.Visible;
             Lisa.Visibility = Visibility.Visible;
             ToodeListBox.Visibility = Visibility.Hidden;
             Label_Ostukorv.Visibility = Visibility.Hidden;
+            Label_Toode.Visibility = Visibility.Hidden;
+            Label_Hind.Visibility = Visibility.Hidden;
+            Label_Kogus.Visibility = Visibility.Hidden;
+            Button_Summa.Visibility = Visibility.Hidden;
         }
 
         private void Button_Click_Kassa(object sender, RoutedEventArgs e)
@@ -160,6 +169,20 @@ namespace Shop_S_V
             Lisa.Visibility = Visibility.Hidden;
             Label_Ostukorv.Visibility = Visibility.Visible;
             ToodeListBox.Visibility = Visibility.Visible;
+            Label_Toode.Visibility = Visibility.Visible;
+            Label_Hind.Visibility = Visibility.Visible;
+            Label_Kogus.Visibility = Visibility.Visible;
+            Button_Summa.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Summa_Click(object sender, RoutedEventArgs e)
+        {
+            double summa=0;
+            foreach(var toode in ToodeteList)
+            {
+                summa = toode.Hind * toode.Kogus;
+            }
+            MessageBox.Show("Teie ostusumma on "+summa+"€","Summa",MessageBoxButton.OK);
         }
     }
 }
