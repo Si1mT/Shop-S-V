@@ -43,7 +43,6 @@ namespace Shop_S_V
         {
             LisaVeelButtonClicked=true;
             Restarta();//leia nupp mis läheb otse "lisa uute"  
-            //Lisa_Toode.Visibility = Visibility.Visible;
             Lisa.Visibility = Visibility.Visible;
         }
 
@@ -58,7 +57,6 @@ namespace Shop_S_V
             Lisa.Visibility = Visibility.Hidden;
             Kassa.Visibility = Visibility.Hidden;
             Lisa_Toode.Visibility = Visibility.Visible;
-
         }
 
         private void Button_Click_LisaToode(object sender, RoutedEventArgs e)
@@ -143,7 +141,7 @@ namespace Shop_S_V
             Button_Summa.Visibility = Visibility.Hidden;
         }
 
-        private void Restart(object sender,RoutedEventArgs e)//miks see on private ja Restarta on public?
+        private void Restart(object sender,RoutedEventArgs e)
         {
             textbox1.Visibility = Visibility.Hidden;
             textbox2.Visibility = Visibility.Hidden;
@@ -180,7 +178,7 @@ namespace Shop_S_V
             double summa=0;
             foreach(var toode in ToodeteList)
             {
-                summa = toode.Hind * toode.Kogus;
+                summa += toode.Hind * toode.Kogus;
             }
             MessageBox.Show("Teie ostusumma on "+summa+"€","Summa",MessageBoxButton.OK);
         }
