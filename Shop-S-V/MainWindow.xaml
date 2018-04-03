@@ -15,7 +15,6 @@
         <TextBox HorizontalAlignment="Left" Height="30" Margin="99,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox1"/>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="176,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox2"/>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox3"/>
-        <!--<TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Hidden" x:Name="textbox3"/>-->
         <Label  Content="Toote nimi" HorizontalAlignment="Left" Margin="100,47,0,0" VerticalAlignment="Top" Height="28" Width="67" Visibility="Hidden" x:Name="Toode"/>
         <Label  Content="Hind(€)" HorizontalAlignment="Left" Margin="177,47,0,0" VerticalAlignment="Top" Height="28" Width="54" Visibility="Hidden" x:Name="Hind"/>
         <Label  Content="Kogus" HorizontalAlignment="Left" Margin="254,47,0,0" VerticalAlignment="Top" Height="32" Width="59" Visibility="Visible" x:Name="Kogus"/>
