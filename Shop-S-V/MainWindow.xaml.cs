@@ -125,6 +125,11 @@ namespace Shop_S_V
             Label_Kogus.Visibility = Visibility.Hidden;
             ToodeListBox.Visibility = Visibility.Hidden;
             Button_Summa.Visibility = Visibility.Hidden;
+            LisageOstukorvi.Visibility = Visibility.Hidden;
+            Ostukorv.Visibility = Visibility.Hidden;
+            Tooted.Visibility = Visibility.Hidden;
+            Lisa.Visibility = Visibility.Visible;
+
         }
 
         public void LisaVeelJuurde()
@@ -171,6 +176,9 @@ namespace Shop_S_V
             Label_Hind.Visibility = Visibility.Visible;
             Label_Kogus.Visibility = Visibility.Visible;
             Button_Summa.Visibility = Visibility.Visible;
+            LisageOstukorvi.Visibility = Visibility.Visible;
+            Ostukorv.Visibility = Visibility.Visible;
+            Tooted.Visibility = Visibility.Visible;
         }
 
         private void Button_Summa_Click(object sender, RoutedEventArgs e)
