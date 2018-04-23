@@ -180,6 +180,9 @@ namespace Shop_S_V
             LisageOstukorvi.Visibility = Visibility.Visible;
             Ostukorv.Visibility = Visibility.Visible;
             Tooted.Visibility = Visibility.Visible;
+            LabelOstukorvHind.Visibility = Visibility.Visible;
+            LabelOstukorvToode.Visibility = Visibility.Visible;
+
         }
 
         private void Button_Summa_Click(object sender, RoutedEventArgs e)
