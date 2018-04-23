@@ -122,14 +122,15 @@ namespace Shop_S_V
             Label_Ostukorv.Visibility = Visibility.Hidden;
             Label_Toode.Visibility = Visibility.Hidden;
             Label_Hind.Visibility = Visibility.Hidden;
-            Label_Kogus.Visibility = Visibility.Hidden;
+            LabelOstukorvKogus.Visibility = Visibility.Hidden;
             ToodeListBox.Visibility = Visibility.Hidden;
             Button_Summa.Visibility = Visibility.Hidden;
             LisageOstukorvi.Visibility = Visibility.Hidden;
             Ostukorv.Visibility = Visibility.Hidden;
             Tooted.Visibility = Visibility.Hidden;
             Lisa.Visibility = Visibility.Visible;
-
+            LabelOstukorvHind.Visibility = Visibility.Hidden;
+            LabelOstukorvToode.Visibility = Visibility.Hidden;
         }
 
         public void LisaVeelJuurde()
@@ -161,7 +162,7 @@ namespace Shop_S_V
             Label_Ostukorv.Visibility = Visibility.Hidden;
             Label_Toode.Visibility = Visibility.Hidden;
             Label_Hind.Visibility = Visibility.Hidden;
-            Label_Kogus.Visibility = Visibility.Hidden;
+            LabelOstukorvKogus.Visibility = Visibility.Hidden;
             Button_Summa.Visibility = Visibility.Hidden;
         }
 
@@ -174,7 +175,7 @@ namespace Shop_S_V
             ToodeListBox.Visibility = Visibility.Visible;
             Label_Toode.Visibility = Visibility.Visible;
             Label_Hind.Visibility = Visibility.Visible;
-            Label_Kogus.Visibility = Visibility.Visible;
+            LabelOstukorvKogus.Visibility = Visibility.Visible;
             Button_Summa.Visibility = Visibility.Visible;
             LisageOstukorvi.Visibility = Visibility.Visible;
             Ostukorv.Visibility = Visibility.Visible;
