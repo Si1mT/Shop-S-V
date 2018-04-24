@@ -36,14 +36,13 @@ namespace Shop_S_V
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
             LõpetaButtonClicked = true;
-            //Button_Click_Kassa(object sender, RoutedEventArgs e);     //leia kuidas otse saada kassasse
             Restarta();
         }
 
         public void LisaVeelButton_Click(object sender, RoutedEventArgs e)
         {
             LisaVeelButtonClicked=true;
-            Restarta();//leia nupp mis läheb otse "lisa uute"  
+            Restarta(); 
             Lisa.Visibility = Visibility.Visible;
         }
 
@@ -94,7 +93,7 @@ namespace Shop_S_V
                     {
                         LisaVeelButtonClicked = false;
                         Lisa.Visibility = Visibility.Visible;
-                        Restarta();//LisaVeelJuurde();
+                        Restarta();
                     }
                     break;
                 }
