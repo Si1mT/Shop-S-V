@@ -125,6 +125,7 @@ namespace Shop_S_V
             LabelOstukorvToode.Visibility = Visibility.Hidden;
             TextBoxKogus.Visibility = Visibility.Hidden;
             ButtonEemalda.Visibility = Visibility.Hidden;
+            ButtonTagasi.Visibility = Visibility.Hidden;
         }
 
         public void LisaVeelJuurde()
@@ -174,6 +175,7 @@ namespace Shop_S_V
             LabelOstukorvToode.Visibility = Visibility.Visible;
             TextBoxKogus.Visibility = Visibility.Visible;
             ButtonEemalda.Visibility = Visibility.Visible;
+            ButtonTagasi.Visibility = Visibility.Visible;
         }
 
         private void Button_Summa_Click(object sender, RoutedEventArgs e)
@@ -212,6 +214,28 @@ namespace Shop_S_V
         {
             int index = OstukorvListBox.SelectedIndex;
             OstukorviList.RemoveAt(index);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Lisa_Toode.Visibility = Visibility.Visible;
+            Kassa.Visibility = Visibility.Visible;
+            Lisa.Visibility = Visibility.Visible;
+            Label_Ostukorv.Visibility = Visibility.Hidden;
+            ToodeListBox.Visibility = Visibility.Hidden;
+            Label_Toode.Visibility = Visibility.Hidden;
+            Label_Hind.Visibility = Visibility.Hidden;
+            LabelOstukorvKogus.Visibility = Visibility.Hidden;
+            Button_Summa.Visibility = Visibility.Hidden;
+            LisageOstukorvi.Visibility = Visibility.Hidden;
+            OstukorvListBox.Visibility = Visibility.Hidden;
+            Tooted.Visibility = Visibility.Hidden;
+            LabelOstukorvHind.Visibility = Visibility.Hidden;
+            LabelOstukorvToode.Visibility = Visibility.Hidden;
+            TextBoxKogus.Visibility = Visibility.Hidden;
+            ButtonEemalda.Visibility = Visibility.Hidden;
+            Lisa_Toode.Visibility = Visibility.Hidden;
+            ButtonTagasi.Visibility = Visibility.Hidden;
         }
     }
 }

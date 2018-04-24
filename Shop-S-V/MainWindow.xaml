@@ -41,7 +41,7 @@
         <Label Content="Hind(€)" HorizontalAlignment="Left" Margin="104,38,0,0" VerticalAlignment="Top" Width="63" Name="Label_Hind" Height="30" Visibility="Hidden" RenderTransformOrigin="0.895,0.14"/>
         <Button Content="Lisage Ostukorvi" HorizontalAlignment="Left" Margin="2,264,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" x:Name="LisageOstukorvi" Click="Button_LisaOstukorvi_Click" RenderTransformOrigin="0.498,0.263"/>
 
-        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="184" Margin="2,64,0,0" Name="ToodeListBox" Visibility="Hidden">
+        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="184" Margin="2,64,0,0" Name="ToodeListBox" Visibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -83,6 +83,7 @@
         </ListBox>
         <TextBox Name="TextBoxKogus" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="156,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
         <Button Name="ButtonEemalda" Content="Eemalda" HorizontalAlignment="Left" Margin="267,264,0,0" VerticalAlignment="Top" Width="80" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Click="Button_Eemalda_Click"/>
+        <Button Name="ButtonTagasi" Content="Tagasi" HorizontalAlignment="Left" Margin="191,264,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click_1"/>
 
         <!--#endregion-->
 
