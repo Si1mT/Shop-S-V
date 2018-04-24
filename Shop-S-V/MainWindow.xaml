@@ -11,7 +11,7 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        
+
         <!--#region Menu-->
         <Button Content="Lisa Toode" HorizontalAlignment="Left" Margin="126,26,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click" x:Name="Lisa" Height="56" Visibility="Hidden"/>
         <Button Content="Kassa" HorizontalAlignment="Left" Margin="285,25,0,0" VerticalAlignment="Top" Width="102" Click="Button_Click_Kassa" Height="56" x:Name="Kassa" Visibility="Hidden"/>
@@ -26,23 +26,24 @@
         <Label  Content="Kogus" HorizontalAlignment="Left" Margin="254,47,0,0" VerticalAlignment="Top" Height="32" Width="59" Visibility="Hidden" x:Name="Kogus"/>
         <Button Content="Lisa" HorizontalAlignment="Left" Margin="330,67,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="Button_Click_LisaToode" x:Name="Lisa_Toode" Visibility="Visible"/>
         <!--#endregion-->
-        
+
         <Button Content="R" HorizontalAlignment="Left" Margin="0,52,0,-52" Width="15" RenderTransformOrigin="-0.188,3.909" Click="Restart" Grid.Row="1"/>
-        
+
         <!--#region LisaVõiLõpeta-->
         <Label Content="Lisa veel või lõpeta?" HorizontalAlignment="Center" Margin="194,122,207,0" VerticalAlignment="Top" Height="39" Width="116" x:Name="LisaVõiLõpeta"/>
         <Button Content="Lisa Veel" HorizontalAlignment="Left" Margin="169,156,0,0" VerticalAlignment="Top" Width="65" Height="44" Click="LisaVeelButton_Click" x:Name="LisaVeelButton"/>
         <Button Content="Lõpeta" HorizontalAlignment="Left" Margin="282,156,0,0" VerticalAlignment="Top" Width="65" Height="44" x:Name="LõpetaButton" Click="LõpetaButton_Click"/>
         <!--#endregion-->
-        
+
         <!--#region Kassa-->
-        
+
             <!--#region Tooted-->
         <Label Content="Tooted" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" x:Name="Tooted" Height="34" Width="110" FontSize="20" FontWeight="Bold" Visibility="Hidden"/>
         <Label HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Content="Toode" Width="57" Name="Label_Toode" Height="26" Visibility="Visible"/>
         <Label Content="Hind(€)" HorizontalAlignment="Left" Margin="104,38,0,0" VerticalAlignment="Top" Width="63" Name="Label_Hind" Height="30" Visibility="Visible" RenderTransformOrigin="0.895,0.14"/>
-        <Button Content="Lisage Ostukorvi" HorizontalAlignment="Left" Margin="2,264,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" x:Name="LisageOstukorvi" Click="Button_Summa_Click" RenderTransformOrigin="0.498,0.263"/>
-        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="240" Margin="2,64,0,0" Name="ToodeListBox" Visibility="Visible">
+        <Button Content="Lisage Ostukorvi" HorizontalAlignment="Left" Margin="2,264,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" x:Name="LisageOstukorvi" Click="Button_Lisa_Click" RenderTransformOrigin="0.498,0.263"/>
+        
+        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="184" Margin="2,64,0,0" Name="ToodeListBox" Visibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -58,7 +59,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <!--#endregion-->
+            <!--#endregion-->
 
             <!--#region Ostukorv-->
         <Label Content="Ostukorv" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Name="Label_Ostukorv" Height="37" Width="103" FontSize="20" FontWeight="Bold"/>
@@ -82,9 +83,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TextBox Name="TextBoxKogus" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="156,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+
         <!--#endregion-->
 
         <!--#endregion-->
-        
+
     </Grid>
 </Window>

@@ -31,6 +31,7 @@ namespace Shop_S_V
             Restarta();
         }
         ObservableCollection<Toode> ToodeteList = new ObservableCollection<Toode>();
+        ObservableCollection<Toode> OstukorviList = new ObservableCollection<Toode>();
 
         public void LõpetaButton_Click(object sender, RoutedEventArgs e)
         {
@@ -131,6 +132,7 @@ namespace Shop_S_V
             Lisa.Visibility = Visibility.Visible;
             LabelOstukorvHind.Visibility = Visibility.Hidden;
             LabelOstukorvToode.Visibility = Visibility.Hidden;
+            TextBoxKogus.Visibility = Visibility.Hidden;
         }
 
         public void LisaVeelJuurde()
@@ -182,17 +184,39 @@ namespace Shop_S_V
             Tooted.Visibility = Visibility.Visible;
             LabelOstukorvHind.Visibility = Visibility.Visible;
             LabelOstukorvToode.Visibility = Visibility.Visible;
-
+            TextBoxKogus.Visibility = Visibility.Visible;
         }
 
         private void Button_Summa_Click(object sender, RoutedEventArgs e)
         {
-            double summa=0;
-            foreach(var toode in ToodeteList)
+            
+        }
+
+        private void Button_Lisa_Click(object sender, RoutedEventArgs e)
+        {
+            if (ToodeListBox.SelectedIndex > -1)
             {
-                summa += toode.Hind * toode.Kogus;
+                var match = OstukorviList.Where(x => String.Equals(x.Nimi, ToodeteList[ToodeListBox.SelectedIndex].Nimi, StringComparison.CurrentCulture));
+                if (match.Any())
+                {
+                    foreach (var item in match)
+                    {
+                        item.Kogus += int.Parse(TextBoxKogus.Text);
+                    }
+                }
+                else
+                {
+                    OstukorviList.Add(ToodeteList[ToodeListBox.SelectedIndex]);
+
+                    OstukorviList[OstukorviList.Count - 1].Kogus = int.Parse(TextBoxKogus.Text);
+                }
             }
-            MessageBox.Show("Teie ostusumma on "+summa+"€","Summa",MessageBoxButton.OK);
+            else
+            {
+                MessageBox.Show("You can't purchase air, please select a product.");
+            }
+            Ostukorv.ItemsSource = null;
+            Ostukorv.ItemsSource = OstukorviList;
         }
     }
 }
