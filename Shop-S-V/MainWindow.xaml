@@ -81,9 +81,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox Name="TextBoxKogus" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="156,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <Button Name="ButtonEemalda" Content="Eemalda" HorizontalAlignment="Left" Margin="267,264,0,0" VerticalAlignment="Top" Width="80" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Click="Button_Eemalda_Click"/>
-        <Button Name="ButtonTagasi" Content="Tagasi" HorizontalAlignment="Left" Margin="191,264,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click_1"/>
+        <TextBox Name="TextBoxKogus" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="153,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Button Name="ButtonEemalda" Content="Eemalda" HorizontalAlignment="Left" Margin="274,263,0,0" VerticalAlignment="Top" Width="80" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Click="Button_Eemalda_Click"/>
+        <Button Name="ButtonTagasi" Content="Tagasi" HorizontalAlignment="Left" Margin="194,264,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click_1"/>
 
         <!--#endregion-->
 
