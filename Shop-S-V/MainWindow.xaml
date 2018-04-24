@@ -20,10 +20,8 @@
         <!--#region Lisa Toode-->
         <TextBox HorizontalAlignment="Left" Height="30" Margin="99,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="66" Visibility="Visible" x:Name="textbox1"/>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="176,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Visible" x:Name="textbox2"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="252,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Visibility="Visible" x:Name="textbox3"/>
         <Label  Content="Toote nimi" HorizontalAlignment="Left" Margin="100,47,0,0" VerticalAlignment="Top" Height="28" Width="67" Visibility="Hidden" x:Name="Toode"/>
         <Label  Content="Hind(€)" HorizontalAlignment="Left" Margin="177,47,0,0" VerticalAlignment="Top" Height="28" Width="54" Visibility="Hidden" x:Name="Hind"/>
-        <Label  Content="Kogus" HorizontalAlignment="Left" Margin="254,47,0,0" VerticalAlignment="Top" Height="32" Width="59" Visibility="Hidden" x:Name="Kogus"/>
         <Button Content="Lisa" HorizontalAlignment="Left" Margin="330,67,0,0" VerticalAlignment="Top" Width="66" Height="40" Click="Button_Click_LisaToode" x:Name="Lisa_Toode" Visibility="Visible"/>
         <!--#endregion-->
 
@@ -37,12 +35,12 @@
 
         <!--#region Kassa-->
 
-            <!--#region Tooted-->
+        <!--#region Tooted-->
         <Label Content="Tooted" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" x:Name="Tooted" Height="34" Width="110" FontSize="20" FontWeight="Bold" Visibility="Hidden"/>
         <Label HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Content="Toode" Width="57" Name="Label_Toode" Height="26" Visibility="Visible"/>
         <Label Content="Hind(€)" HorizontalAlignment="Left" Margin="104,38,0,0" VerticalAlignment="Top" Width="63" Name="Label_Hind" Height="30" Visibility="Visible" RenderTransformOrigin="0.895,0.14"/>
-        <Button Content="Lisage Ostukorvi" HorizontalAlignment="Left" Margin="2,264,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" x:Name="LisageOstukorvi" Click="Button_Lisa_Click" RenderTransformOrigin="0.498,0.263"/>
-        
+        <Button Content="Lisage Ostukorvi" HorizontalAlignment="Left" Margin="2,264,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" x:Name="LisageOstukorvi" Click="Button_LisaOstukorvi_Click" RenderTransformOrigin="0.498,0.263"/>
+
         <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="184" Margin="2,64,0,0" Name="ToodeListBox" Visibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -59,15 +57,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-            <!--#endregion-->
+        <!--#endregion-->
 
-            <!--#region Ostukorv-->
+        <!--#region Ostukorv-->
         <Label Content="Ostukorv" HorizontalAlignment="Left" Margin="404,10,0,0" VerticalAlignment="Top" Name="Label_Ostukorv" Height="37" Width="103" FontSize="20" FontWeight="Bold"/>
         <Label Content="Toode" HorizontalAlignment="Left" Margin="267,38,0,0" VerticalAlignment="Top" Width="63" x:Name="LabelOstukorvToode" Height="30" Visibility="Visible" RenderTransformOrigin="0.895,0.14"/>
-        <Label Content="Hind(€)" HorizontalAlignment="Left" Margin="375,38,0,0" VerticalAlignment="Top" Width="63" x:Name="LabelOstukorvHind" Height="30" Visibility="Visible" RenderTransformOrigin="0.895,0.14"/>
+        <Label Content="Hind(€)" HorizontalAlignment="Left" Margin="370,38,0,0" VerticalAlignment="Top" Width="63" x:Name="LabelOstukorvHind" Height="30" Visibility="Visible" RenderTransformOrigin="0.895,0.14"/>
         <Label Content="Kogus" HorizontalAlignment="Left" Margin="459,38,0,0" VerticalAlignment="Top" Width="48" Name="LabelOstukorvKogus" Height="30" Visibility="Visible"/>
         <Button Content="Arvutage summa" HorizontalAlignment="Left" Margin="359,263,0,0" VerticalAlignment="Top" Width="148" Height="34" FontSize="14" FontWeight="Bold" Name="Button_Summa" Click="Button_Summa_Click" RenderTransformOrigin="0.323,0.533"/>
-        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="240" Margin="267,63,0,0" x:Name="Ostukorv" Visibility="Visible">
+        <ListBox HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="240" Margin="267,63,0,0" x:Name="OstukorvListBox" Visibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -84,6 +82,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBox Name="TextBoxKogus" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="156,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <Button Name="ButtonEemalda" Content="Eemalda" HorizontalAlignment="Left" Margin="267,264,0,0" VerticalAlignment="Top" Width="80" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Click="Button_Eemalda_Click"/>
 
         <!--#endregion-->
 
